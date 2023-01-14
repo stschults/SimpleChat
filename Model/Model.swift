@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum AuthResponce {
+    case success, error, noVerify
+}
+
 struct Model {
     var id: Int
     var text: String
