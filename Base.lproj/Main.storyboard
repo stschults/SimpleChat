@@ -218,7 +218,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="LeI-ja-iKo" kind="relationship" relationship="viewControllers" id="dBe-ib-BkW"/>
-                        <segue destination="wxw-nT-jsr" kind="relationship" relationship="viewControllers" id="iU1-v3-d9J"/>
+                        <segue destination="1oH-FJ-N1l" kind="relationship" relationship="viewControllers" id="uXB-fC-gTF"/>
                         <segue destination="m3g-iG-4eu" kind="relationship" relationship="viewControllers" id="Mwf-GO-RYv"/>
                     </connections>
                 </tabBarController>
@@ -243,29 +243,35 @@
             <point key="canvasLocation" x="48" y="1553"/>
         </scene>
         <!--Сообщения-->
-        <scene sceneID="PCv-fb-zDA">
+        <scene sceneID="2xO-di-6yb">
             <objects>
-                <viewController id="wxw-nT-jsr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bDy-lt-UuO">
+                <viewController id="euv-ET-azp" customClass="MessageListViewController" customModule="SimpleChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KpN-qp-M8k">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfn-k2-MDV">
-                                <rect key="frame" x="177" y="412" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PmC-xA-uHL">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="8Ei-El-NLv"/>
+                        <viewLayoutGuide key="safeArea" id="F1y-Fr-85f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F1y-Fr-85f" firstAttribute="trailing" secondItem="PmC-xA-uHL" secondAttribute="trailing" id="GDS-aL-g7c"/>
+                            <constraint firstItem="PmC-xA-uHL" firstAttribute="top" secondItem="F1y-Fr-85f" secondAttribute="top" id="eTn-15-dW1"/>
+                            <constraint firstItem="PmC-xA-uHL" firstAttribute="leading" secondItem="F1y-Fr-85f" secondAttribute="leading" id="nHU-I0-T8j"/>
+                            <constraint firstItem="F1y-Fr-85f" firstAttribute="bottom" secondItem="PmC-xA-uHL" secondAttribute="bottom" id="nVs-ot-geu"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Сообщения" image="message" catalog="system" selectedImage="message.fill" id="4fC-mO-weG"/>
+                    <navigationItem key="navigationItem" title="Сообщения" id="f3I-qK-6hL"/>
+                    <connections>
+                        <outlet property="tableView" destination="PmC-xA-uHL" id="znN-lW-tKF"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NSh-jT-lNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNj-38-Dja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161.5384615384614" y="1553.3175355450237"/>
+            <point key="canvasLocation" x="2075.3846153846152" y="1561.8483412322273"/>
         </scene>
         <!--Пользователи-->
         <scene sceneID="EI2-4J-CTP">
@@ -462,6 +468,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQD-DE-o9l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2298" y="-4"/>
+        </scene>
+        <!--Сообщения-->
+        <scene sceneID="jHg-I6-mJq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1oH-FJ-N1l" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Сообщения" image="message" catalog="system" selectedImage="message.fill" id="iqj-R5-FZz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F9F-l1-SHS">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="euv-ET-azp" kind="relationship" relationship="rootViewController" id="iSt-p2-MZ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hf1-3F-BYg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146.1538461538462" y="1561.8483412322273"/>
         </scene>
     </scenes>
     <resources>
