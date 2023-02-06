@@ -31,15 +31,18 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date().addingTimeInterval(-12200), kind: .text("Hey")))
-        messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date().addingTimeInterval(-11200), kind: .text("Hello")))
-        messages.append(Message(sender: otherSender, messageId: "3", sentDate: Date().addingTimeInterval(-10200), kind: .text("Hello, im fine")))
-        
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         showMessageTimestampOnSwipeLeft = true
+        
+        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date().addingTimeInterval(-12200), kind: .text("Hey")))
+        messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date().addingTimeInterval(-11200), kind: .text("Hello")))
+        messages.append(Message(sender: otherSender, messageId: "3", sentDate: Date().addingTimeInterval(-10200), kind: .text("Hello, im fine")))
+        
+        
+        
         
         print(messages)
     }
