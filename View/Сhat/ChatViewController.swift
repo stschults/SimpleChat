@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
 
 public struct Sender: SenderType {
     public var senderId: String
@@ -35,18 +36,24 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
         showMessageTimestampOnSwipeLeft = true
         
         messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date().addingTimeInterval(-12200), kind: .text("Hey")))
         messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date().addingTimeInterval(-11200), kind: .text("Hello")))
         messages.append(Message(sender: otherSender, messageId: "3", sentDate: Date().addingTimeInterval(-10200), kind: .text("Hello, im fine")))
-        
-        
-        
-        
-        print(messages)
+        loadFirstMessages()
     }
+    
+    func loadFirstMessages() {
+        DispatchQueue.main.async {
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToLastItem(animated: false)
+        }
+    }
+    
 }
+
 
 
 extension ChatViewController: MessagesDataSource {
@@ -67,3 +74,11 @@ extension ChatViewController: MessagesDataSource {
 }
 
 extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate { }
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        messages.append(Message(sender: selfSender, messageId: "123", sentDate: Date(), kind: .text(text)))
+        inputBar.inputTextView.text = nil
+        messagesCollectionView.reloadDataAndKeepOffset()
+    }
+}
