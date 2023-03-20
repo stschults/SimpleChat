@@ -229,18 +229,39 @@
         <!--Настройки-->
         <scene sceneID="Gqs-kq-Hs6">
             <objects>
-                <viewController id="m3g-iG-4eu" sceneMemberID="viewController">
+                <viewController id="m3g-iG-4eu" customClass="SettingsViewController" customModule="SimpleChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wu5-WB-2KK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbK-9G-ZY7">
+                                <rect key="frame" x="140" y="147" width="110" height="41.666666666666657"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOutButton:" destination="m3g-iG-4eu" eventType="touchUpInside" id="G2P-U7-gH1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6rh-4z-B0W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6rh-4z-B0W" firstAttribute="trailing" secondItem="pbK-9G-ZY7" secondAttribute="trailing" constant="140" id="Jry-t3-vsv"/>
+                            <constraint firstItem="pbK-9G-ZY7" firstAttribute="top" secondItem="6rh-4z-B0W" secondAttribute="top" constant="100" id="l8H-bn-M7q"/>
+                            <constraint firstItem="pbK-9G-ZY7" firstAttribute="leading" secondItem="6rh-4z-B0W" secondAttribute="leading" constant="140" id="qua-KB-pPr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Настройки" image="gearshape.2" catalog="system" selectedImage="gearshape.2.fill" id="gnN-Qb-6yc"/>
+                    <connections>
+                        <outlet property="logOutOutlet" destination="pbK-9G-ZY7" id="mTb-lf-vOm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoS-yd-6oA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="1553"/>
+            <point key="canvasLocation" x="47.692307692307693" y="1552.6066350710901"/>
         </scene>
         <!--Сообщения-->
         <scene sceneID="2xO-di-6yb">
@@ -499,6 +520,9 @@
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

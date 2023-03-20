@@ -24,10 +24,11 @@ public struct Message: MessageType {
 
 class ChatViewController: MessagesViewController {
     
+    var otherID: String?
     var chatID: String?
     let selfSender = Sender(senderId: "1", displayName: "Me")
     let otherSender = Sender(senderId: "2", displayName: "Jony")
-
+    let service = Service.shared
     var messages: [Message] = []
     
     override func viewDidLoad() {
@@ -77,8 +78,19 @@ extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate { 
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        messages.append(Message(sender: selfSender, messageId: "123", sentDate: Date(), kind: .text(text)))
-        inputBar.inputTextView.text = nil
-        messagesCollectionView.reloadDataAndKeepOffset()
+        let message = Message(sender: selfSender, messageId: "123", sentDate: Date(), kind: .text(text))
+        messages.append(message)
+        service.sendMessage(otherID: self.otherID,
+                            conversationID: self.chatID,
+                            message: message,
+                            text: text) {
+            [weak self] isSend in
+            
+            DispatchQueue.main.async {
+                inputBar.inputTextView.text = nil
+                self?.messagesCollectionView.reloadDataAndKeepOffset()
+            }
+        }
+        
     }
 }
