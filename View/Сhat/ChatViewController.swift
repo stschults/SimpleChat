@@ -39,10 +39,6 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         showMessageTimestampOnSwipeLeft = true
-        
-        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date().addingTimeInterval(-12200), kind: .text("Hey")))
-        messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date().addingTimeInterval(-11200), kind: .text("Hello")))
-        messages.append(Message(sender: otherSender, messageId: "3", sentDate: Date().addingTimeInterval(-10200), kind: .text("Hello, im fine")))
         loadFirstMessages()
     }
     
@@ -78,7 +74,7 @@ extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate { 
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let message = Message(sender: selfSender, messageId: "123", sentDate: Date(), kind: .text(text))
+        let message = Message(sender: selfSender, messageId: "", sentDate: Date(), kind: .text(text))
         messages.append(message)
         service.sendMessage(otherID: self.otherID,
                             conversationID: self.chatID,

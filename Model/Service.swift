@@ -61,19 +61,21 @@ class Service {
         
     }
     
-    func getAllUsers(completion: @escaping ([String]) -> ()) {
+    func getAllUsers(completion: @escaping ([CurrentUser]) -> ()) {
+        var currentUsers = [CurrentUser]()
+        
         guard let email = Auth.auth().currentUser?.email else { return }
         Firestore.firestore().collection("users").whereField("email", isNotEqualTo: email).getDocuments { snap, err in
                 if err == nil {
-                    var emailList = [String]()
                     if let docs = snap?.documents {
                         for doc in docs {
                             let data = doc.data()
+                            let userID = doc.documentID
                             let email = data["email"] as! String
-                            emailList.append(email)
+                            currentUsers.append(CurrentUser(id: userID, email: email))
                         }
                     }
-                    completion(emailList)
+                    completion(currentUsers)
                 }
             }
     }

@@ -217,16 +217,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="LeI-ja-iKo" kind="relationship" relationship="viewControllers" id="dBe-ib-BkW"/>
+                        <segue destination="KB3-S6-qx4" kind="relationship" relationship="viewControllers" id="dBe-ib-BkW"/>
                         <segue destination="1oH-FJ-N1l" kind="relationship" relationship="viewControllers" id="uXB-fC-gTF"/>
-                        <segue destination="m3g-iG-4eu" kind="relationship" relationship="viewControllers" id="Mwf-GO-RYv"/>
+                        <segue destination="cWL-fv-hJO" kind="relationship" relationship="viewControllers" id="Mwf-GO-RYv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJo-FS-lEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="48" y="816"/>
         </scene>
-        <!--Настройки-->
+        <!--Settings View Controller-->
         <scene sceneID="Gqs-kq-Hs6">
             <objects>
                 <viewController id="m3g-iG-4eu" customClass="SettingsViewController" customModule="SimpleChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -235,7 +235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbK-9G-ZY7">
-                                <rect key="frame" x="140" y="147" width="110" height="41.666666666666657"/>
+                                <rect key="frame" x="140" y="191" width="110" height="41.666666666666657"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out">
@@ -254,14 +254,14 @@
                             <constraint firstItem="pbK-9G-ZY7" firstAttribute="leading" secondItem="6rh-4z-B0W" secondAttribute="leading" constant="140" id="qua-KB-pPr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Настройки" image="gearshape.2" catalog="system" selectedImage="gearshape.2.fill" id="gnN-Qb-6yc"/>
+                    <navigationItem key="navigationItem" id="oNv-Ma-Tj5"/>
                     <connections>
                         <outlet property="logOutOutlet" destination="pbK-9G-ZY7" id="mTb-lf-vOm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoS-yd-6oA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47.692307692307693" y="1552.6066350710901"/>
+            <point key="canvasLocation" x="976.92307692307691" y="2281.990521327014"/>
         </scene>
         <!--Сообщения-->
         <scene sceneID="2xO-di-6yb">
@@ -294,7 +294,7 @@
             </objects>
             <point key="canvasLocation" x="2075.3846153846152" y="1561.8483412322273"/>
         </scene>
-        <!--Пользователи-->
+        <!--Users View Controller-->
         <scene sceneID="EI2-4J-CTP">
             <objects>
                 <viewController storyboardIdentifier="UsersViewController" id="LeI-ja-iKo" customClass="UsersViewController" customModule="SimpleChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,7 +303,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0aq-Hd-lXa">
-                                <rect key="frame" x="0.0" y="47" width="390" height="714"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -316,14 +316,14 @@
                             <constraint firstItem="0aq-Hd-lXa" firstAttribute="leading" secondItem="aAg-YA-T4T" secondAttribute="leading" id="ugc-an-hcG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Пользователи" image="person.3" catalog="system" selectedImage="person.3.fill" id="9re-bS-l8F"/>
+                    <navigationItem key="navigationItem" id="fSV-mA-8bT"/>
                     <connections>
                         <outlet property="tableView" destination="0aq-Hd-lXa" id="mtL-Ku-VY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X99-JD-yxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="815"/>
+            <point key="canvasLocation" x="2090.7692307692305" y="814.69194312796208"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="Cvb-Eh-4PJ">
@@ -508,6 +508,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hf1-3F-BYg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1146.1538461538462" y="1561.8483412322273"/>
+        </scene>
+        <!--Пользователи-->
+        <scene sceneID="cEL-W6-hYF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KB3-S6-qx4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Пользователи" image="person.3" catalog="system" selectedImage="person.3.fill" id="9re-bS-l8F"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1h-M2-OWy">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LeI-ja-iKo" kind="relationship" relationship="rootViewController" id="E9c-q3-aVM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhx-ko-awm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1161.5384615384614" y="814.69194312796208"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="Hes-qE-UfM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cWL-fv-hJO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Настройки" image="gearshape.2" catalog="system" selectedImage="gearshape.2.fill" id="gnN-Qb-6yc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9CF-rI-wlv">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m3g-iG-4eu" kind="relationship" relationship="rootViewController" id="U6l-0l-Z6F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8l-VO-VTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.692307692307693" y="2281.990521327014"/>
         </scene>
     </scenes>
     <resources>
